@@ -21,10 +21,10 @@ echo "CONFIG_PACKAGE_luci-app-upnp-not=y" >> .config
 echo "CONFIG_PACKAGE_miniupnpd-not=y" >> .config
 
 # 添加 Nikki
-echo "CONFIG_PACKAGE_luci-app-nikki=y" >> .config
-echo "CONFIG_PACKAGE_luci-i18n-nikki-zh-cn=y" >> .config
-echo "CONFIG_PACKAGE_nikki=y" >> .config
-echo "CONFIG_PACKAGE_mihomo=y" >> .config
+#echo "CONFIG_PACKAGE_luci-app-nikki=y" >> .config
+#echo "CONFIG_PACKAGE_luci-i18n-nikki-zh-cn=y" >> .config
+#echo "CONFIG_PACKAGE_nikki=y" >> .config
+#echo "CONFIG_PACKAGE_mihomo=y" >> .config
 
 # 透明代理和 nftables 转发必不可少的内核网络驱动
 echo "CONFIG_PACKAGE_kmod-nft-tproxy=y" >> .config
