@@ -10,11 +10,23 @@
 # See /LICENSE for more information.
 #
 
-# Modify default IP
-#sed -i 's/192.168.1.1/192.168.50.5/g' package/base-files/files/bin/config_generate
+#!/bin/bash
 
-# Modify default theme
-#sed -i 's/luci-theme-bootstrap/luci-theme-argon/g' feeds/luci/collections/luci/Makefile
+# 删除HomeProxy
+echo "CONFIG_PACKAGE_luci-app-homeproxy-not=y" >> .config
+echo "CONFIG_PACKAGE_sing-box-not=y" >> .config
 
-# Modify hostname
-#sed -i 's/OpenWrt/P3TERX-Router/g' package/base-files/files/bin/config_generate
+# 剔除 UPnP
+echo "CONFIG_PACKAGE_luci-app-upnp-not=y" >> .config
+echo "CONFIG_PACKAGE_miniupnpd-not=y" >> .config
+
+# 添加 Nikki
+echo "CONFIG_PACKAGE_luci-app-nikki=y" >> .config
+echo "CONFIG_PACKAGE_luci-i18n-nikki-zh-cn=y" >> .config
+echo "CONFIG_PACKAGE_nikki=y" >> .config
+echo "CONFIG_PACKAGE_mihomo=y" >> .config
+
+# 透明代理和 nftables 转发必不可少的内核网络驱动
+echo "CONFIG_PACKAGE_kmod-nft-tproxy=y" >> .config
+echo "CONFIG_PACKAGE_kmod-nft-socket=y" >> .config
+echo "CONFIG_PACKAGE_kmod-tun=y" >> .config
