@@ -15,6 +15,9 @@ echo "CONFIG_TARGET_mediatek=y" >> .config
 echo "CONFIG_TARGET_mediatek_filogic=y" >> .config
 echo "CONFIG_TARGET_mediatek_filogic_DEVICE_jcg_q30-pro=y" >> .config
 
+# 【核心修复】强行补齐 Q30 Pro 闭源固件不可或缺的无线驱动、无线管理和加速组件
+echo 'CONFIG_TARGET_DEVICE_PACKAGES_mediatek_filogic_DEVICE_jcg_q30-pro="kmod-mt7981-firmware mt7981-eeprom kmod-mt7x82-wlan iwinfo kmod-ppe-mtk luci-app-mtk"' >> .config
+
 # 切除homeproxy和upnp
 echo "CONFIG_PACKAGE_luci-app-homeproxy-not=y" >> .config
 echo "CONFIG_PACKAGE_sing-box-not=y" >> .config
